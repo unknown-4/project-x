@@ -1,11 +1,11 @@
 # project-x
 A Project management Web App for managing project
 
-FIGMA COmmon ACCount
 
-USERNAME :  hoficew634@nzaif.com
-Password : projectx 
+Steps:
 
-Django server 
-USERNAME :projectx
-Password : Csemini@123
+1.python -m venv env
+2.source env/Script/activate
+
+3.Pip install -r requirments.txt
+4.python manage.py runserver
