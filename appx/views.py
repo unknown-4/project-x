@@ -1,8 +1,4 @@
-import email
-from django.contrib import messages
-from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render, redirect
-from django.contrib.auth.models import User, auth
+from django.shortcuts import render
 from . models import Student, Teacher
 
 # Create your views here.
@@ -19,22 +15,22 @@ def login_user(request):
         if Student.objects.filter(email=username).filter(password=password):
             print("login worked")
             my_type = "student"
+            lname = Student.objects.filter(email=username).first_name
+            
 
         if Teacher.objects.filter(email=username).filter(password=password):
             print("login worked")
-            my_type = "teacher"
+            my_type = "teacher" 
+            lname = Teacher.objects.filter(email=username)[0].first_name
+            studentlist = Student.objects.all()      
 
         context = {
-            'type': my_type
+            'type': my_type ,"name": lname , "studentlist": studentlist
         }
         print(context)
         return render(request, "dashboard.html", context)
     else:
         return render(request, 'login.html')
-
-def logout_user(request):
-    auth.logout(request)
-    return redirect('index')
 
 def dashboard(request):
     return render(request, 'dashboard.html')
