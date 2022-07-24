@@ -206,9 +206,9 @@
                             </div>
 
                             <p class="message-line" style="color: black;">
-                                {{student.project_name}}
+                                PROJECT NAME : {{student.project_name}}
                                 <button class="add-participant" onclick="location.href='CHANGES'">
-                                    view
+                                    <a href="/verify/{{student.email}}" style="color: rgb(0, 0, 0);">View</a>
                                 </button>
                             </p>
                         </div>
@@ -324,41 +324,44 @@
                             <div class="col-lg-6">
                                 <h3 class="resume-title"></h3>
                                 <div class="resume-item pb-0">
-                                    <h4>General Instructions</h4>
-                                    <h5><em>Kindly Notice</em></h5>
+                                    <h4>Group No : {{group_id}}</h4>
+                                    <h5><em> Project Name : {{group_name}}</em></h5>
+                                    <h5><em> Project Stage : {{group_stage}}</em></h5>
                                     <ul>
-                                        <li>No spot registration shall be permitted.</li>
-                                        <li>Graduands are requested to be present at the venue by <strong>8.45 a.m.
-                                            </strong> positively for registration.</li>
-                                        <li>The graduands who have not registered on time shall not be permitted to
-                                            attend the Graduation Ceremony.</li>
+                                        <li>
+                                            <h5><em> Project Description : {{group_desc}}</em></h5>
+                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="resume-item">
-                                    <h4 class="resume-title">INSTRUCTION FOR THE DAY</h4>
-                                    <h5><em>Following instructions are to be strictly followed in the Graduation
-                                            Day</em></h5>
-                                    <h5>1. Dress Code</h5>
+                                    <h5>Project Progress {{group_progress}} and things todo</h5>
+                                    <h5>1. Testing </h5>
                                     <ul>
-                                        <li>Gents: Trousers, Full sleeves shirts, tucked in with shoes and ties.</li>
-                                        <li>Ladies: Saree / Salwar.</li>
+                                        <li>Automated testing</li>
                                     </ul>
 
-                                    <h5>2. Guests</h5>
+                                    <h5>2. Production</h5>
                                     <ul>
-                                        <li>Only parents, immediate blood relations (parents/brother/sister) or spouse
-                                            of recipients
-                                            are allowed.</li>
-                                        <li>Children, below 8 years of age, are not allowed.</li>
-                                        <li>Recipients shall forward particulars of guests using the online registration
-                                            for making
-                                            necessary arrangements.</li>
+                                        <li>Responsive production</li>
+                                        <li>Multisystem capabilities</li>
                                     </ul>
                                 </div>
 
                             </div>
+                            <div class="col-lg-6">
+                                <div class="resume-item">
+                                    <h4 class="resume-title">Links For testing !</h4>
+                                    <h5>1. Github</h5>
+                                    <ul>
+                                        <li><a href="{{group_link}}">{{group_link}}</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <h4 class="resume-title">Project Submission Date : {{group_sub_date}}</h4>
+                            </div>  
                         </div>
                     </div>
                 </div>
@@ -380,11 +383,10 @@
                 <div class="messages">
 
                     <div class="message-box">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
-                            alt="profile image">
+                        <img src="data:image/png;base64,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">
                         <div class="message-content">
                             <div class="message-header">
-                                <div class="name">Stephanie</div>
+                                <div class="name">ZERO Review</div>
                                 <div class="star-checkbox">
                                     <input type="checkbox" id="star-1">
                                     <label for="star-1">
@@ -402,10 +404,113 @@
                                 assignment.
                             </p>
                             <p class="message-line time">
-                                Dec, 12
+                               {{zero}}
                             </p>
                         </div>
                     </div>
+                    <div class="message-box">
+                        <img src="data:image/png;base64,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"><div class="message-content">
+                            <div class="message-header">
+                                <div class="name">FIRST Review</div>
+                                <div class="star-checkbox">
+                                    <input type="checkbox" id="star-1">
+                                    <label for="star-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                                            <polygon
+                                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                        </svg>
+                                    </label>
+                                </div>
+                            </div>
+                            <p class="message-line">
+                                I got your first assignment. It was quite good. 🥳 We can continue with the next
+                                assignment.
+                            </p>
+                            <p class="message-line time">
+                               {{zero}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="message-box">
+                        <img src="data:image/png;base64,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">
+                        <div class="message-content">
+                            <div class="message-header">
+                                <div class="name">SECOND Review</div>
+                                <div class="star-checkbox">
+                                    <input type="checkbox" id="star-1">
+                                    <label for="star-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                                            <polygon
+                                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                        </svg>
+                                    </label>
+                                </div>
+                            </div>
+                            <p class="message-line">
+                                I got your first assignment. It was quite good. 🥳 We can continue with the next
+                                assignment.
+                            </p>
+                            <p class="message-line time">
+                               {{zero}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="message-box">
+                        <img src="data:image/png;base64,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">
+                        <div class="message-content">
+                            <div class="message-header">
+                                <div class="name">THIRD Review</div>
+                                <div class="star-checkbox">
+                                    <input type="checkbox" id="star-1">
+                                    <label for="star-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                                            <polygon
+                                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                        </svg>
+                                    </label>
+                                </div>
+                            </div>
+                            <p class="message-line">
+                                I got your first assignment. It was quite good. 🥳 We can continue with the next
+                                assignment.
+                            </p>
+                            <p class="message-line time">
+                               {{zero}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="message-box">
+                        <img src="data:image/png;base64,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">
+                        <div class="message-content">
+                            <div class="message-header">
+                                <div class="name">FOURTH Review</div>
+                                <div class="star-checkbox">
+                                    <input type="checkbox" id="star-1">
+                                    <label for="star-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                                            <polygon
+                                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                        </svg>
+                                    </label>
+                                </div>
+                            </div>
+                            <p class="message-line">
+                                I got your first assignment. It was quite good. 🥳 We can continue with the next
+                                assignment.
+                            </p>
+                            <p class="message-line time">
+                               {{zero}}
+                            </p>
+                        </div>
+                    </div>  
                 </div>
             </div>
         </div>
