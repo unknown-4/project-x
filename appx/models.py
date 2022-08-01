@@ -1,7 +1,6 @@
 from email.policy import default
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
-from multiselectfield import MultiSelectField
 # Create your models here.
 
 

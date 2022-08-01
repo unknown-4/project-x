@@ -7,4 +7,5 @@ urlpatterns = [
     path("dashboard",views.dashboard, name="dashboard"),
     path("loginfailed",views.loginfailed, name="loginfailed"),
     path('verify/<str:email>', views.verify),
+    path('registration/<str:email>', views.student_Registraion),
 ]
